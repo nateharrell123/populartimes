@@ -13,7 +13,7 @@ ENTRY POINT
 
 """
 
-
+# get comment
 def get(api_key, types, p1, p2, n_threads=20, radius=180, all_places=False):
     """
     :param api_key: str; api key from google places web service
