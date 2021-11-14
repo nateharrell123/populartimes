@@ -13,9 +13,9 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 
 
-@app.route('/test/<placeid>', methods=['POST'])
-def GetBusyness(placeid):
-    print(placeid)
+@app.route('/test', methods=['POST'])
+def GetBusyness():
+    print(request.args)
     # spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJL2TntXnSvYcRvdwEv_SZehA")
     # for key, value in spot.items():
     #     if key == "current_popularity":
