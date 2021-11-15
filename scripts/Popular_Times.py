@@ -21,6 +21,7 @@ def GetBusyness():
     
     for key, value in spot.items():
         if key == "current_popularity":
+            print(value)
             return value
         else:
             return 'no data'
