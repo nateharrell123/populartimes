@@ -15,12 +15,15 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 @app.route('/test', methods=['POST'])
 def GetBusyness():
-    print(request.args)
-    # spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJL2TntXnSvYcRvdwEv_SZehA")
-    # for key, value in spot.items():
-    #     if key == "current_popularity":
-    #         print(value)
-    return 'this works!'
+    place_id = request.args.get('place')
+    
+    spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
+    
+    for key, value in spot.items():
+        if key == "current_popularity":
+            return value
+        else:
+            return 'no data'
 
 
 # idk 
