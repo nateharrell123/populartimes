@@ -45,27 +45,25 @@ currentTime = datetime.now().strftime('%H:%M:%S')
 # Dirty Dawg's (not live)
 notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOWMYXHjSvYcRSvAfdxlP8fg")
 
-# for key, value in notLive.items():
-#     if key == "current_popularity":
-#         print(value)
-#     elif key == "populartimes":
-#         print(value[3])
-#         #print(value[dayOfWeek])
-    
+for key, value in notLive.items():
+    if key == "populartimes":
+        #print(value[3])
+        for item, val in value[3].items():
+            print(val)    
 
 
 # Walmart Manhattan, KS (live busyness)
-spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
+# spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
 
-for key, value in spot.items():
-    if key == "current_popularity":
-        if value > 0 and value < 25:
-            print(value) # Not Very Busy 
-        elif value > 25 and value < 50:
-            print(value) # A little busy
-        elif value > 50 and value < 75: 
-            print(value) # Moderately busy
-        elif value > 75:
-            print(value) # Very busy
-    elif key == "populartimes":
-        print("need to do this")
+# for key, value in spot.items():
+#     if key == "current_popularity":
+#         if value > 0 and value < 25:
+#             print(value) # Not Very Busy 
+#         elif value > 25 and value < 50:
+#             print(value) # A little busy
+#         elif value > 50 and value < 75: 
+#             print(value) # Moderately busy
+#         elif value > 75:
+#             print(value) # Very busy
+#     elif key == "populartimes":
+#         print("need to do this")
