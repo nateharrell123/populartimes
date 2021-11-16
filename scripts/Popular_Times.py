@@ -13,14 +13,16 @@ app.config.from_object(__name__)
 # Allow Cors access
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-
+# look up async tasks in Flask
+# Flask doesn't understand async tasks
+# https://flask.palletsprojects.com/en/2.0.x/async-await/ 
 @app.route('/test', methods=['POST'])
-def GetBusyness():
+async def GetBusyness():
     dayOfWeek = datetime.today().weekday()
     currentTime = int(datetime.now().strftime('%H'))
 
     place_id = request.args.get('place')
-    spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
+    spot = await populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
     
     for key, value in spot.items():
         if key == "current_popularity":
@@ -36,7 +38,8 @@ def GetBusyness():
         if key == "populartimes":
             for item, val in value[dayOfWeek].items():
                 if item == "data":
-                    return val[currentTime]
+                    # return val[currentTime]
+                    return "asdf"
         else:
             return "No population data for this establishment."
 
