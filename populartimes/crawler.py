@@ -360,7 +360,7 @@ def get_populartimes_from_search(name, address):
     logging.info("searchterm: " + search_url)
 
     # noinspection PyUnresolvedReferences
-    gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+    gcontext = ssl.SSLContext(ssl.PROTOCOL_TLS)
 
     resp = urllib.request.urlopen(urllib.request.Request(url=search_url, data=None, headers=USER_AGENT),
                                   context=gcontext)

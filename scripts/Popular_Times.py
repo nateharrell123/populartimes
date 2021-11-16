@@ -1,5 +1,6 @@
 import populartimes
 import json
+import time
 from datetime import date, datetime # Monday is 0 and Sunday is 6
 import calendar
 from flask import Flask, jsonify, request
@@ -22,8 +23,10 @@ async def GetBusyness():
     currentTime = int(datetime.now().strftime('%H'))
 
     place_id = request.args.get('place')
-    spot = await populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
-    
+    spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
+
+    print(spot)
+
     for key, value in spot.items():
         if key == "current_popularity":
             print(value)
