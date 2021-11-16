@@ -55,9 +55,17 @@ notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOW
 
 
 # Walmart Manhattan, KS (live busyness)
-#spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
+spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
 
 for key, value in spot.items():
     if key == "current_popularity":
-        if value > 0:
-            print(value)
+        if value > 0 and value < 25:
+            print(value) # Not Very Busy 
+        elif value > 25 and value < 50:
+            print(value) # A little busy
+        elif value > 50 and value < 75: 
+            print(value) # Moderately busy
+        elif value > 75:
+            print(value) # Very busy
+    elif key == "populartimes":
+        print("need to do this")
