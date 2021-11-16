@@ -35,47 +35,32 @@ import calendar
 #     app.run()
 
 
-
-
-
-# Walmart Manhattan, KS
-spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
-my_date = date.today()
-dayOfWeek = calendar.day_name[my_date.weekday()]
-
+# dayOfWeek = calendar.day_name[my_date.weekday()] English
+#print(dayOfWeek)
+dayOfWeek = datetime.today().weekday()
 currentTime = datetime.now().strftime('%H:%M:%S')
-print(currentTime)
+
+
+
+
+# Walmart Manhattan, KS (live busyness)
+#spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
+
+# Dirty Dawg's (not live)
+notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOWMYXHjSvYcRSvAfdxlP8fg")
+
+for key, value in notLive.items():
+    if key == "populartimes":
+        print(value[dayOfWeek])
+    
+
+
+#print(currentTime)
 
 
 # for key, value in spot.items():
 #     if key == "current_popularity":
-#         print(value)
+#         if value > 0:
+#             print(value)
+#         else:
 
-
-
-
-
-
-
-
-
-# Code graveyard:
-
-#days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-# weekday = datetime.today().weekday()
-# dayOfWeek = ""
-
-# if weekday == 0:
-#     dayOfWeek = days[0] # Monday
-# if weekday == 1:
-#     dayOfWeek = days[1] # Tuesday
-# if weekday == 2:
-#     dayOfWeek = days[2] # Wednesday
-# if weekday == 3:
-#     dayOfWeek = days[3] # Thursday
-# if weekday == 4:
-#     dayOfWeek = days[4] # Friday
-# if weekday == 5:
-#     dayOfWeek = days[5] # Saturday
-# if weekday == 6:
-#     dayOfWeek = days[6] # Sunday
