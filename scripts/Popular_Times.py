@@ -38,8 +38,8 @@ import calendar
 # dayOfWeek = calendar.day_name[my_date.weekday()] English
 #print(dayOfWeek)
 dayOfWeek = datetime.today().weekday()
-currentTime = datetime.now().strftime('%H')
-#print(currentTime)
+currentTime = int(datetime.now().strftime('%H'))
+print(currentTime)
 
 
 # Dirty Dawg's (not live)
@@ -47,10 +47,10 @@ notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOW
 
 for key, value in notLive.items():
     if key == "populartimes":
-        #print(value[3])
-        for item, val in value[4].items():
+        print(value[3])
+        for item, val in value[3].items():
             if item == "data":
-                print(val)
+                print(val[currentTime])
 
 
 # Walmart Manhattan, KS (live busyness)
