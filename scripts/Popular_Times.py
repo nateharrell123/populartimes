@@ -1,6 +1,6 @@
 import populartimes
 import json
-from datetime import date, datetime
+from datetime import date, datetime # Monday is 0 and Sunday is 6
 import calendar
 
 # from flask import Flask, jsonify, request
@@ -42,25 +42,22 @@ currentTime = datetime.now().strftime('%H:%M:%S')
 
 
 
+# Dirty Dawg's (not live)
+notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOWMYXHjSvYcRSvAfdxlP8fg")
+
+# for key, value in notLive.items():
+#     if key == "current_popularity":
+#         print(value)
+#     elif key == "populartimes":
+#         print(value[3])
+#         #print(value[dayOfWeek])
+    
+
 
 # Walmart Manhattan, KS (live busyness)
 #spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
 
-# Dirty Dawg's (not live)
-notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJOWMYXHjSvYcRSvAfdxlP8fg")
-
-for key, value in notLive.items():
-    if key == "populartimes":
-        print(value[dayOfWeek])
-    
-
-
-#print(currentTime)
-
-
-# for key, value in spot.items():
-#     if key == "current_popularity":
-#         if value > 0:
-#             print(value)
-#         else:
-
+for key, value in spot.items():
+    if key == "current_popularity":
+        if value > 0:
+            print(value)
