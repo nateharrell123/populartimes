@@ -49,7 +49,8 @@ for key, value in notLive.items():
     if key == "populartimes":
         #print(value[3])
         for item, val in value[4].items():
-            print(val)    
+            if item == "data":
+                print(val)
 
 
 # Walmart Manhattan, KS (live busyness)
