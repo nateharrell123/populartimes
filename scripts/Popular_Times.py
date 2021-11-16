@@ -24,6 +24,7 @@ def GetBusyness():
     
     for key, value in spot.items():
         if key == "current_popularity":
+            print(value)
             if value > 0 and value < 25:
                 return "Not very busy!"
             elif value > 25 and value < 50:
@@ -49,3 +50,13 @@ if __name__ == '__main__':
 
 # Walmart Manhattan, KS (live busyness)
 # spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
+# for key, value in spot.items():
+#     if key == "current_popularity":
+#         if value > 0 and value < 25:
+#             print(value)
+#         elif value > 25 and value < 50:
+#             print(value)
+#         elif value > 50 and value < 75: 
+#             print(value)
+#         elif value > 75:
+#             print(value)
