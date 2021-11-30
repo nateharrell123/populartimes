@@ -37,10 +37,7 @@ async def GetBusyness():
                 return "Very busy"
         elif key == "populartimes":
             for item, val in value[dayOfWeek].items():
-                print(item)
                 if item == "data":
-                    print(currentTime)
-                    print(val)
                     if val[currentTime] == 0: # I don't think this is 100% accurate
                         return "Predicted busy-ness is low (not very busy!)"
                     if val[currentTime] > 0 and val[currentTime] < 25:
