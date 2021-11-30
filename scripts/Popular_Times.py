@@ -3,16 +3,13 @@ from datetime import date, datetime # Monday is 0 and Sunday is 6
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-# # Instantiate app
+# Instantiate app
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-# # # Allow Cors access
+# Allow Cors access
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-# # # look up async tasks in Flask
-# # # Flask doesn't understand async tasks
-# # # https://flask.palletsprojects.com/en/2.0.x/async-await/ 
 @app.route('/test', methods=['POST'])
 async def GetBusyness():
     dayOfWeek = datetime.today().weekday()
@@ -23,6 +20,7 @@ async def GetBusyness():
     spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
 
     for key, value in spot.items():
+        print(key)
         if key == "current_popularity":
             if value >= 0 and value <= 25:
                 return "Not very busy!"
@@ -45,9 +43,8 @@ async def GetBusyness():
                         return "Usually moderately busy"
                     elif val[currentTime] > 75:
                         return "Usually very busy"
+                        
 
-
-# # # idk 
 if __name__ == '__main__':
     app.run()
 
