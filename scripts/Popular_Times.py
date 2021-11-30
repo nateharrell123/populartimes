@@ -6,20 +6,6 @@ import calendar
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-def timeconvert(str1):
-    if str1[-2:] == "AM" and str1[:2] == "12":
-        return "00" + str1[2:-2]
-    elif str1[-2:] == "AM":
-        return str1[:-2]
-    elif str1[-2:] == "PM" and str1[:2] == "12":
-        return str1[:-2]
-    else:
-        return str(int(str1[:2]) + 12) + str1[2:8]
-
-dt=datetime.datetime.now()
-print("Conversion Of Time ::",timeconvert(dt.strftime("%H:%M:%S")))
-
-
 # # Instantiate app
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -51,19 +37,20 @@ async def GetBusyness():
                 return "Very busy"
         elif key == "populartimes":
             for item, val in value[dayOfWeek].items():
-                print(val)
+                print(item)
                 if item == "data":
-                    print(val[currentTime])
-                    if val[currentTime] == 0:
-                        return ""
+                    print(currentTime)
+                    print(val)
+                    if val[currentTime] == 0: # I don't think this is 100% accurate
+                        return "Predicted busy-ness is low (not very busy!)"
                     if val[currentTime] > 0 and val[currentTime] < 25:
-                        return "Not very busy!"
+                        return "Usually not very busy!"
                     elif val[currentTime] > 25 and val[currentTime] < 50:
-                        return "A little busy"
+                        return "Usually a little busy"
                     elif val[currentTime] > 50 and val[currentTime] < 75: 
-                        return "Moderately busy"
+                        return "Usually moderately busy"
                     elif val[currentTime] > 75:
-                        return "Very busy"
+                        return "Usually very busy"
 
 
 # # # idk 
