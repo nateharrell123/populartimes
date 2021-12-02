@@ -20,7 +20,6 @@ async def GetBusyness():
     spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", place_id)
 
     for key, value in spot.items():
-        print(key)
         if key == "current_popularity":
             if value >= 0 and value <= 25:
                 return "Not very busy!"
@@ -34,7 +33,7 @@ async def GetBusyness():
             for item, val in value[dayOfWeek].items():
                 if item == "data":
                     if val[currentTime] == 0: # come back to this
-                        return "Predicted busy-ness is low (not very busy!)"
+                        return "Place is either closed, or hardly busy at all!"
                     if val[currentTime] > 0 and val[currentTime] < 25:
                         return "Usually not very busy!"
                     elif val[currentTime] > 25 and val[currentTime] < 50:
