@@ -24,11 +24,11 @@ async def GetBusyness():
             if value >= 0 and value <= 25:
                 return "Not very busy!"
             elif value > 25 and value <= 50:
-                return "A little busy"
+                return "A little busy!"
             elif value > 50 and value <= 75: 
-                return "Moderately busy"
+                return "Moderately busy."
             elif value > 75:
-                return "Very busy"
+                return "Very busy."
         elif key == "populartimes":
             for item, val in value[dayOfWeek].items():
                 if item == "data":
@@ -37,11 +37,11 @@ async def GetBusyness():
                     if val[currentTime] > 0 and val[currentTime] < 25:
                         return "Usually not very busy!"
                     elif val[currentTime] > 25 and val[currentTime] < 50:
-                        return "Usually a little busy"
+                        return "Usually a little busy."
                     elif val[currentTime] > 50 and val[currentTime] < 75: 
-                        return "Usually moderately busy"
+                        return "Usually moderately busy."
                     elif val[currentTime] > 75:
-                        return "Usually very busy"
+                        return "Usually very busy."
                         
 
 if __name__ == '__main__':
