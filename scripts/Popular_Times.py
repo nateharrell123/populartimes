@@ -40,7 +40,7 @@ async def GetBusyness():
                         return "A little busy."
                     elif val[currentTime] > 40 and val[currentTime] <= 60: 
                         return "Moderately busy."
-                    elif val[currentTime] > 60 and val[currentTime] <= 60:
+                    elif val[currentTime] > 60 and val[currentTime] <= 80:
                         return "Very busy."
                     elif val[currentTime] > 80:
                         return "Extremely busy."
