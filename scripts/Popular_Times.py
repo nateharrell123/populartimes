@@ -21,27 +21,29 @@ async def GetBusyness():
 
     for key, value in spot.items():
         if key == "current_popularity":
-            if value >= 0 and value <= 25:
-                return "Not very busy!"
-            elif value > 25 and value <= 50:
-                return "A little busy!"
-            elif value > 50 and value <= 75: 
+            if value >= 0 and value <= 20:
+                return "Not busy."
+            elif value > 20 and value <= 40:
+                return "A little busy."
+            elif value > 40 and value <= 60: 
                 return "Moderately busy."
-            elif value > 75:
+            elif value > 60 and value <= 80:
                 return "Very busy."
+            elif value > 80:
+                return "Extremely busy."
         elif key == "populartimes":
             for item, val in value[dayOfWeek].items():
                 if item == "data":
-                    if val[currentTime] == 0: # come back to this
-                        return "Place is either closed, or hardly busy at all!"
-                    if val[currentTime] > 0 and val[currentTime] < 25:
-                        return "Usually not very busy!"
-                    elif val[currentTime] > 25 and val[currentTime] < 50:
-                        return "Usually a little busy."
-                    elif val[currentTime] > 50 and val[currentTime] < 75: 
-                        return "Usually moderately busy."
-                    elif val[currentTime] > 75:
-                        return "Usually very busy."
+                    if val[currentTime] > 0 and val[currentTime] <= 20:
+                        return "Not busy."
+                    elif val[currentTime] > 20 and val[currentTime] <= 40:
+                        return "A little busy."
+                    elif val[currentTime] > 40 and val[currentTime] <= 60: 
+                        return "Moderately busy."
+                    elif val[currentTime] > 60 and val[currentTime] <= 60:
+                        return "Very busy."
+                    elif val[currentTime] > 80:
+                        return "Extremely busy."
                         
 
 if __name__ == '__main__':
