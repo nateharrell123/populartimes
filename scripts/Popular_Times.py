@@ -48,18 +48,3 @@ async def GetBusyness():
 
 if __name__ == '__main__':
     app.run()
-
-
-# Comfort Suites (not live)
-#notLive = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJoeLKJmjSvYcRkMwiBlv7DCI")
-
-# dayOfWeek = datetime.today().weekday()
-# currentTime = int(datetime.now().strftime('%H'))
-
-# Walmart Manhattan, KS (live busyness)
-# spot = populartimes.get_id("AIzaSyDASvg4ATeMQcAsocmem5kFdTMDw_NSJwo", "ChIJqa09skLSvYcR47QwBQ73ShQ")
-# for key, value in spot.items():
-#     if key == "populartimes":
-#         for item, val in value[dayOfWeek].items():
-#             if item == "data":
-#                 print(val[currentTime])
