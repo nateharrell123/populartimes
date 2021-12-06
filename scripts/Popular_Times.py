@@ -10,7 +10,7 @@ app.config.from_object(__name__)
 # Allow Cors access
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-@app.route('/test', methods=['POST'])
+@app.route('/GetBusy', methods=['POST'])
 async def GetBusyness():
     dayOfWeek = datetime.today().weekday()
     currentTime = int(datetime.now().strftime('%H'))
