@@ -34,7 +34,7 @@ async def GetBusyness():
         elif key == "populartimes":
             for item, val in value[dayOfWeek].items():
                 if item == "data":
-                    if val[currentTime] > 0 and val[currentTime] <= 20:
+                    if val[currentTime] >= 0 and val[currentTime] <= 20:
                         return "Not busy."
                     elif val[currentTime] > 20 and val[currentTime] <= 40:
                         return "A little busy."
